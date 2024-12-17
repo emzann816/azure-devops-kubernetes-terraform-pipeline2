@@ -19,8 +19,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'Semilieann-docker-hub'
-        repository: 'Semilieann/currency-exchange-devops'
+        containerRegistry: 'Semilie-docker-hub'
+        repository: 'semilieann/currency-exchange-devops'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
