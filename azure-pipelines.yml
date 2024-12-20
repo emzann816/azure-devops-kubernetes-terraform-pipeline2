@@ -20,7 +20,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'Semilie-docker-hub'
-        repository: 'semilieann/currency-exchange-devops'
+        repository: 'semilieann/currency-exchange-devops-1'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
