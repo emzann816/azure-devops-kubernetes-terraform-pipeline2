@@ -24,12 +24,10 @@ steps:
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'Azure subscription 1(0fcf5c5d-cac8-42bf-bab3-29afa6fbf256)'
-    backendAzureRmSubscriptionId: '0fcf5c5d-cac8-42bf-bab3-29afa6fbf256'
     ensureBackend: true
-    backendAzureRmResourceGroupName: 'kubernetes'
-    backendAzureRmStorageAccountName: 'mystorageemz123'
-    backendAzureRmContainerName: 'mystoragecontaineremz123'
-    backendAzureRmKey: 'k8s'
+    backendAzureRmResourceGroupName: 'terraform-backend-rg'
+    backendAzureRmResourceGroupLocation: 'westus2'
+    backendAzureRmStorageAccountName: 'terraformmystorageemz123'
+    backendAzureRmContainerName: 'terraformmycontainer12456'
+    backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: true
-
-    
