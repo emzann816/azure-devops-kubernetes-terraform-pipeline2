@@ -13,19 +13,23 @@ steps:
 - script: echo K8s Terraform Azure!
   displayName: 'Run a one-line script'
 - task: DownloadSecureFile@1
+  name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
 
-- task: TerraformTaskV4@4
+- task: TerraformCLI@2
   inputs:
-    provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret)  -var ssh_public_key=$(publickey.secureFilePath)'
-    backendAzureRmUseEnvironmentVariablesForAuthentication: false
-    backendServiceArm: 'Azure subscription 1(1)(0fcf5c5d-cac8-42bf-bab3-29afa6fbf256)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    backendType: 'azurerm'
+    backendServiceArm: 'Azure subscription 1(0fcf5c5d-cac8-42bf-bab3-29afa6fbf256)'
+    backendAzureRmSubscriptionId: '0fcf5c5d-cac8-42bf-bab3-29afa6fbf256'
+    ensureBackend: true
     backendAzureRmResourceGroupName: 'kubernetes'
     backendAzureRmStorageAccountName: 'mystorageemz123'
-    backendAzureRmContainerName: 'mystoragecontainer123'
-    backendAzureRmKey: 'kubernetes-dev.tfstate'
+    backendAzureRmContainerName: 'mystoragecontaineremz123'
+    backendAzureRmKey: 'k8s'
+    allowTelemetryCollection: true
+
     
